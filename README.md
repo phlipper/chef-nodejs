@@ -1,24 +1,28 @@
-# DESCRIPTION
+# chef-nodejs
 
-Installs [Node.js](http://nodejs.org/).
+## Description
+
+Installs [Node.js](http://nodejs.org/) and optionally [npm](http://npmjs.org/).
 
 
-# REQUIREMENTS
+## Requirements
 
-## Supported Platforms
+### Supported Platforms
 
 The following platforms are supported by this cookbook, meaning that the recipes run on these platforms without error:
 
 * Ubuntu
 
-# RECIPES
+## Recipes
 
 * `nodejs` - The default recipe. This sets up the apt repository and installs common packages.
+* `nodejs::dev` - Install the development libraries.
+* `nodejs::npm` - Install `npm`.
 
-# USAGE
+
+## Usage
 
 This cookbook installs the Node.js components if not present, and pulls updates if they are installed on the system.
-
 
 
 ## Contributing

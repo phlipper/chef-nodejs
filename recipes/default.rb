@@ -10,6 +10,4 @@ execute "setup ppa apt repository" do
   not_if  "test -f /etc/apt/sources.list.d/chris-lea-node.js-lucid.list"
 end
 
-%w[nodejs nodejs-dev].each do |pkg|
-  package pkg
-end
+package "nodejs"
