@@ -34,6 +34,14 @@ This cookbook installs the Node.js components if not present, and pulls updates 
 5. Create new Pull Request
 
 
+## Contributors
+
+Many thanks go to the following who have contributed to making this gem even better:
+
+* **[@iafonov](https://github.com/iafonov)**
+  * support for more Ubuntu versions
+
+
 ## License
 
 **chef-nodejs**
