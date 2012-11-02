@@ -10,4 +10,6 @@ recipe "nodejs", "Sets up the apt repository and installs dependent packages"
 recipe "nodejs::dev", "Install the development libraries"
 recipe "nodejs::npm", "Install npm"
 
+depends "apt", ">= 1.4.4"
+
 supports "ubuntu"

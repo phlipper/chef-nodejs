@@ -3,11 +3,13 @@
 # Recipe:: default
 #
 
-package "python-software-properties"
-
-execute "setup ppa apt repository" do
-  command "add-apt-repository ppa:chris-lea/node.js && apt-get update"
-  not_if  { Dir["/etc/apt/sources.list.d/chris-lea-node*"].any? }
+apt_repository "chris-lea-node.js" do
+  uri "http://ppa.launchpad.net/chris-lea/node.js/ubuntu"
+  distribution node["lsb"]["codename"]
+  components ["main"]
+  key "C7917B12"
+  keyserver "keyserver.ubuntu.com"
+  action :add
 end
 
 package "nodejs"
