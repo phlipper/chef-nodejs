@@ -12,4 +12,5 @@ recipe "nodejs::npm", "Install npm"
 
 depends "apt", ">= 1.4.4"
 
+supports "debian"
 supports "ubuntu"

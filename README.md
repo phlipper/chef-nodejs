@@ -11,6 +11,7 @@ Installs [Node.js](http://nodejs.org/) and optionally [npm](http://npmjs.org/).
 
 The following platforms are supported by this cookbook, meaning that the recipes run on these platforms without error:
 
+* Debian
 * Ubuntu
 
 ## Recipes
