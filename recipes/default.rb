@@ -13,6 +13,7 @@ when "ubuntu"
     key "C7917B12"
     keyserver "keyserver.ubuntu.com"
     action :add
+    notifies :run, "execute[apt-get update]", :immediately
   end
 
 when "debian"
