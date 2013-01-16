@@ -3,8 +3,8 @@
 # Recipe:: default
 #
 
-case node["lsb"]["id"]
-when "Ubuntu"
+case node["platform"]
+when "ubuntu"
 
   apt_repository "chris-lea-node.js" do
     uri "http://ppa.launchpad.net/chris-lea/node.js/ubuntu"
@@ -15,7 +15,7 @@ when "Ubuntu"
     action :add
   end
 
-when "Debian"
+when "debian"
 
   # backports for initial support
   apt_repository "sid-unstable" do
