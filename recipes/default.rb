@@ -13,7 +13,6 @@ when "ubuntu"
     key "C7917B12"
     keyserver "keyserver.ubuntu.com"
     action :add
-    notifies :run, "execute[apt-get update]", :immediately
   end
 
 when "debian"
@@ -24,7 +23,6 @@ when "debian"
     distribution "sid"
     components ["main"]
     action :add
-    notifies :run, "execute[apt-get update]", :immediately
   end
 
   cookbook_file "/etc/apt/preferences.d/sid.pref" do
