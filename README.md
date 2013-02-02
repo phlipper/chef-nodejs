@@ -1,4 +1,4 @@
-# chef-nodejs
+# chef-nodejs [![Build Status](https://travis-ci.org/phlipper/chef-nodejs.png?branch=master)](https://travis-ci.org/phlipper/chef-nodejs)
 
 ## Description
 
