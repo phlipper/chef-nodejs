@@ -3,6 +3,6 @@
 # Recipe:: npm
 #
 
-require_recipe "nodejs"
+include_recipe "nodejs"
 
 package "npm"

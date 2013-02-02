@@ -3,6 +3,6 @@
 # Recipe:: dev
 #
 
-require_recipe "nodejs"
+include_recipe "nodejs"
 
 package "nodejs-dev"
