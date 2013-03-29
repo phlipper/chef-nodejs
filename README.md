@@ -41,6 +41,8 @@ Many thanks go to the following who have contributed to making this gem even bet
 
 * **[@iafonov](https://github.com/iafonov)**
   * support for more Ubuntu versions
+* **[@nshahzad](https://github.com/nshahzad)**
+  * add node.js-legacy repository
 
 
 ## License
