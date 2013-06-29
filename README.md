@@ -20,6 +20,13 @@ The following platforms are supported by this cookbook, meaning that the recipes
 * `nodejs::npm` - Install `npm`.   _NOTE: `node.js-legacy` only_
 
 
+## Attributes
+
+```ruby
+default["nodejs"]["legacy"] = false  # enable legacy npm support
+```
+
+
 ## Usage
 
 This cookbook installs the Node.js components if not present, and pulls updates if they are installed on the system.

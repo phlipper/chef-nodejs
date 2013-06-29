@@ -7,7 +7,7 @@ long_description  "Please refer to README.md"
 version           "1.6.0"
 
 recipe "nodejs", "Sets up the apt repository and installs dependent packages"
-recipe "nodejs::npm", "Install npm"
+recipe "nodejs::npm", "Install npm [DEPRECATED]"
 
 depends "apt", ">= 1.4.4"
 
