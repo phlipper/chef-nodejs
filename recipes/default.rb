@@ -14,23 +14,13 @@ when "ubuntu"
     key "C7917B12"
     keyserver "hkp://keyserver.ubuntu.com:80"
   end
-
 when "debian"
-
   # backports for initial support
-  apt_repository "sid-unstable" do
+  apt_repository "wheezy-backports" do
     uri "http://ftp.us.debian.org/debian"
-    distribution "sid"
+    distribution "wheezy-backports"
     components ["main"]
   end
-
-  cookbook_file "/etc/apt/preferences.d/sid.pref" do
-    source "sid.pref"
-  end
-
-  # compatibility for Debian 6
-  package "libv8-3.8.9.20"
-
 end
 
 # install primary package
