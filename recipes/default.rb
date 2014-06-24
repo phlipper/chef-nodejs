@@ -13,8 +13,8 @@ when "ubuntu"
     distribution node["lsb"]["codename"]
     components ["main"]
     key "C7917B12"
-    keyserver "keyserver.ubuntu.com"
     action :add
+    keyserver "hkp://keyserver.ubuntu.com:80"
   end
 
 when "debian"
