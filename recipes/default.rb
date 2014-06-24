@@ -3,6 +3,8 @@
 # Recipe:: default
 #
 
+include_recipe "apt"
+
 case node["platform"]
 when "ubuntu"
 
