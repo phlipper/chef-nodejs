@@ -9,7 +9,7 @@ version           "1.7.0"
 recipe "nodejs", "Sets up the apt repository and installs dependent packages"
 recipe "nodejs::npm", "Install npm [DEPRECATED]"
 
-depends "apt", ">= 1.4.4"
+depends "apt"
 
 supports "debian"
 supports "ubuntu"
