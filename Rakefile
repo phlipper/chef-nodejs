@@ -1,35 +1,31 @@
-#!/usr/bin/env rake
+task default: "test"
 
-task :default => "foodcritic"
+desc "Run all tests except `kitchen`"
+task test: [:rubocop, :foodcritic, :chefspec]
 
-desc "Runs foodcritic linter"
-task :foodcritic do
-  Rake::Task[:prepare_sandbox].execute
+desc "Run all tests"
+task all_tests: [:rubocop, :foodcritic, :chefspec, "kitchen:all"]
 
-  if Gem::Version.new("1.9.2") <= Gem::Version.new(RUBY_VERSION.dup)
-    sh "foodcritic -f any #{sandbox_path}"
-  else
-    puts "WARN: foodcritic run is skipped as Ruby #{RUBY_VERSION} is < 1.9.2."
-  end
+# rubocop style checker
+require "rubocop/rake_task"
+RuboCop::RakeTask.new
+
+# foodcritic chef lint
+require "foodcritic"
+FoodCritic::Rake::LintTask.new do |t|
+  t.options = { fail_tags: ["any"], tags: ["~FC015"] }
 end
 
-desc "Runs knife cookbook test"
-task :knife do
-  Rake::Task[:prepare_sandbox].execute
-
-  sh "bundle exec knife cookbook test cookbook -c test/.chef/knife.rb -o #{sandbox_path}/../"
+# chefspec unit tests
+require "rspec/core/rake_task"
+RSpec::Core::RakeTask.new(:chefspec) do |t|
+  t.rspec_opts = "--color --format progress"
 end
 
-task :prepare_sandbox do
-  files = %w{*.md *.rb attributes definitions libraries files providers recipes resources templates}
-
-  rm_rf sandbox_path
-  mkdir_p sandbox_path
-  cp_r Dir.glob("{#{files.join(",")}}"), sandbox_path
-end
-
-private
-
-def sandbox_path
-  File.join(File.dirname(__FILE__), %w[tmp cookbooks cookbook])
+# test-kitchen integration tests
+begin
+  require "kitchen/rake_tasks"
+  Kitchen::RakeTasks.new
+rescue LoadError
+  task("kitchen:all") { puts "Unable to run `test-kitchen`" }
 end
