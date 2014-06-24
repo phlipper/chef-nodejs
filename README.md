@@ -11,12 +11,13 @@ Installs [Node.js](http://nodejs.org/) and optionally [npm](http://npmjs.org/).
 
 The following platforms are supported by this cookbook, meaning that the recipes run on these platforms without error:
 
-* Debian
-* Ubuntu
+* Debian 7
+* Ubuntu 12.04+
 
 ## Recipes
 
 * `nodejs` - The default recipe. This sets up the apt repository and installs common packages and development libraries.
+* `nodejs::_apt` - Internal recipe to configure the apt repository.
 * `nodejs::npm` - Install `npm`.   _NOTE: `node.js-legacy` only_
 
 
@@ -55,10 +56,6 @@ Many thanks go to the following who have contributed to making this gem even bet
 
 **chef-nodejs**
 
-* Freely distributable and licensed under the [MIT license](http://phlipper.mit-license.org/2011-2013/license.html).
-* Copyright (c) 2011-2013 Phil Cohen (github@phlippers.net) [![endorse](http://api.coderwall.com/phlipper/endorsecount.png)](http://coderwall.com/phlipper)
+* Freely distributable and licensed under the [MIT license](http://phlipper.mit-license.org/2011-2014/license.html).
+* Copyright (c) 2011-2014 Phil Cohen (github@phlippers.net) [![endorse](http://api.coderwall.com/phlipper/endorsecount.png)](http://coderwall.com/phlipper)  [![Gittip](http://img.shields.io/gittip/phlipper.png)](https://www.gittip.com/phlipper/)
 * http://phlippers.net/
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/phlipper/chef-nodejs/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
