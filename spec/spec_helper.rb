@@ -1,5 +1,4 @@
 begin
-  require "rspec/expectations"
   require "chefspec"
   require "chefspec/berkshelf"
 rescue LoadError
@@ -8,8 +7,8 @@ rescue LoadError
 end
 
 RSpec.configure do |config|
-  config.platform = "ubuntu"
-  config.version = "12.04"
+  config.platform  = "ubuntu"
+  config.version   = "14.04"
   config.log_level = :error
 end
 
