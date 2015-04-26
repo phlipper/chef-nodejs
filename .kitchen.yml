@@ -1,17 +1,42 @@
+#<% require "kitchen-sync" %>
+---
 driver:
-  require_chef_omnibus: <%= ENV.fetch("CHEF_VERSION", "latest") %>
-  ssh_key: <%= File.expand_path("./test/support/keys/vagrant") %>
-  name: vagrant
+  name: docker
+  require_chef_omnibus: <%= ENV.fetch("CHEF_VERSION", true) %>
+  provision_command:
+  - sudo apt-get -qy install apt-transport-https net-tools
 
 provisioner:
-  name: chef_solo
+  name: chef_zero
 
 platforms:
   - name: debian-7.8
+  - name: debian-8.0
   - name: ubuntu-12.04
   - name: ubuntu-14.04
 
 suites:
-  - name: default
+  - name: node-0_10
     run_list:
       - recipe[nodejs]
+    attributes:
+      nodejs:
+        engine: node
+        version: "0.10"
+  - name: node-0_12
+    run_list:
+      - recipe[nodejs]
+    attributes:
+      nodejs:
+        engine: node
+        version: "0.12"
+  - name: iojs-1x
+    excludes:
+      - debian-7.8
+      - ubuntu-12.04
+    run_list:
+      - recipe[nodejs]
+    attributes:
+      nodejs:
+        engine: iojs
+        version: "1.x"

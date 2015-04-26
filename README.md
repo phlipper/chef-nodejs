@@ -11,8 +11,10 @@ Installs [Node.js](http://nodejs.org/) or optionally [io.js](https://iojs.org).
 
 The following platforms are supported by this cookbook, meaning that the recipes run on these platforms without error:
 
-* Debian 7
-* Ubuntu 12.04+
+* Debian 7.8
+* Debian 8.0
+* Ubuntu 12.04
+* Ubuntu 14.04
 
 ## Recipes
 
