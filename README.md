@@ -49,15 +49,15 @@ This cookbook installs the Node.js components if not present, and pulls updates 
 Many thanks go to the following who have contributed to making this gem even better:
 
 * **[@iafonov](https://github.com/iafonov)**
-  * support for more Ubuntu versions
+    * support for more Ubuntu versions
 * **[@nshahzad](https://github.com/nshahzad)**
-  * add node.js-legacy repository
+    * add node.js-legacy repository
 
 
 ## License
 
 **chef-nodejs**
 
-* Freely distributable and licensed under the [MIT license](http://phlipper.mit-license.org/2011-2014/license.html).
-* Copyright (c) 2011-2014 Phil Cohen (github@phlippers.net) [![endorse](http://api.coderwall.com/phlipper/endorsecount.png)](http://coderwall.com/phlipper)  [![Gittip](http://img.shields.io/gittip/phlipper.png)](https://www.gittip.com/phlipper/)
+* Freely distributable and licensed under the [MIT license](http://phlipper.mit-license.org/2011-2015/license.html).
+* Copyright (c) 2011-2015 Phil Cohen (github@phlippers.net) [![endorse](http://api.coderwall.com/phlipper/endorsecount.png)](http://coderwall.com/phlipper)  [![Gittip](http://img.shields.io/gittip/phlipper.png)](https://www.gittip.com/phlipper/)
 * http://phlippers.net/
