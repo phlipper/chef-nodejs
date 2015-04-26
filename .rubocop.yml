@@ -1,3 +1,8 @@
+AllCops:
+  Exclude:
+    - ".bundle/**/*"
+    - "vendor/**/*"
+
 LineLength:
   Max: 80
   Exclude:
@@ -5,6 +10,9 @@ LineLength:
     - "**/metadata.rb"
 
 StringLiterals:
+  EnforcedStyle: double_quotes
+
+StringLiteralsInInterpolation:
   EnforcedStyle: double_quotes
 
 PercentLiteralDelimiters:

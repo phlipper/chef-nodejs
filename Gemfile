@@ -14,6 +14,7 @@ gem "serverspec", "~> 2.14.1"
 group :integration do
   gem "busser-serverspec", "~> 0.5.5"
   gem "guard-rspec", "~> 4.5.0"
-  gem "kitchen-vagrant", "~> 0.16.0"
+  gem "kitchen-docker", "~> 2.1.0"
+  gem "kitchen-sync", "~> 1.0.1"
   gem "test-kitchen", "~> 1.3.1"
 end

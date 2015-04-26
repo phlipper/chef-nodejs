@@ -10,30 +10,19 @@ describe "nodejs::_apt" do
       expect(chef_run).to include_recipe "apt"
     end
 
-    it "configures the apt repository" do
-      expect(chef_run).to add_apt_repository "chris-lea-node.js"
+    it "cleans up legacy `chris-lea` repositories" do
+      expect(chef_run).to remove_apt_repository "chris-lea-node.js"
+      expect(chef_run).to remove_apt_repository "chris-lea-node.js-legacy"
     end
 
-    describe "when `legacy` is `true`" do
-      let(:chef_run) do
-        ChefSpec::SoloRunner.new do |node|
-          node.set["nodejs"]["legacy"] = true
-        end.converge(described_recipe)
-      end
-
-      it "includes the `apt` recipe" do
-        expect(chef_run).to include_recipe "apt"
-      end
-
-      it "configures the apt repository" do
-        expect(chef_run).to add_apt_repository "chris-lea-node.js-legacy"
-      end
+    it "configures the apt repository" do
+      expect(chef_run).to add_apt_repository "nodesource"
     end
   end
 
   describe "debian platform" do
     let(:chef_run) do
-      env_options = { platform: "debian", version: "7.4" }
+      env_options = { platform: "debian", version: "7.8" }
       ChefSpec::SoloRunner.new(env_options).converge(described_recipe)
     end
 
@@ -42,7 +31,7 @@ describe "nodejs::_apt" do
     end
 
     it "configures the apt repository" do
-      expect(chef_run).to add_apt_repository "wheezy-backports"
+      expect(chef_run).to add_apt_repository "nodesource"
     end
   end
 end
