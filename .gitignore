@@ -2,6 +2,7 @@
 *.tar.gz
 vendor/bundle
 .bundle
+.AppleDouble
 .DS_Store
 build/*
 tmp/
