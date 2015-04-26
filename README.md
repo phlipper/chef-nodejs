@@ -18,13 +18,11 @@ The following platforms are supported by this cookbook, meaning that the recipes
 
 * `nodejs` - The default recipe. This sets up the apt repository and installs common packages and development libraries.
 * `nodejs::_apt` - Internal recipe to configure the apt repository.
-* `nodejs::npm` - Install `npm`.   _NOTE: `node.js-legacy` only_
 
 
 ## Attributes
 
 ```ruby
-default["nodejs"]["legacy"] = false  # enable legacy npm support
 ```
 
 
