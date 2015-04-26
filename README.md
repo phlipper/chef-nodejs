@@ -2,7 +2,7 @@
 
 ## Description
 
-Installs [Node.js](http://nodejs.org/) and optionally [npm](http://npmjs.org/).
+Installs [Node.js](http://nodejs.org/) or optionally [io.js](https://iojs.org).
 
 
 ## Requirements
@@ -23,6 +23,8 @@ The following platforms are supported by this cookbook, meaning that the recipes
 ## Attributes
 
 ```ruby
+default["nodejs"]["engine"] = "node"   # or `iojs`
+default["nodejs"]["version"] = "0.12"  # or `0.10`, or `1.x` for io.js
 ```
 
 

@@ -5,24 +5,23 @@
 
 include_recipe "apt"
 
-case node["platform"]
-when "ubuntu"
-  repo_name = "node.js"
-  repo_name << "-legacy" if node["nodejs"]["legacy"]
+# remove any potential legacy repository setup from earlier cookbook versions
+%w[chris-lea-node.js chris-lea-node.js-legacy].each do |legacy_repo|
+  apt_repository legacy_repo do
+    action :remove
+  end
+end
 
-  # default repository
-  apt_repository "chris-lea-#{repo_name}" do
-    uri "http://ppa.launchpad.net/chris-lea/#{repo_name}/ubuntu"
-    distribution node["lsb"]["codename"]
-    components ["main"]
-    key "C7917B12"
-    keyserver "hkp://keyserver.ubuntu.com:80"
-  end
-when "debian"
-  # backports for initial support
-  apt_repository "wheezy-backports" do
-    uri "http://ftp.us.debian.org/debian"
-    distribution "wheezy-backports"
-    components ["main"]
-  end
+# use proper `arch` label
+repo_arch = node["kernel"]["machine"] == "x86_64" ? "amd64" : "i386"
+
+# create path name like `node_0.12` or `iojs_1.x`
+repo_path = "#{node["nodejs"]["engine"]}_#{node["nodejs"]["version"]}"
+
+apt_repository "nodesource" do
+  arch repo_arch
+  uri "https://deb.nodesource.com/#{repo_path}"
+  distribution node["lsb"]["codename"]
+  components ["main"]
+  key "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
 end
